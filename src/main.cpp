@@ -12,6 +12,7 @@ pros::Motor FR(9, pros::E_MOTOR_GEARSET_06, true); // port 9, blue gearbox, reve
 pros::Motor BR(8, pros::E_MOTOR_GEARSET_06, true); // port 8, blue gearbox, reversed
 pros::Motor TR(10, pros::E_MOTOR_GEARSET_06, true); // port 10, blue gearbox, reversed
 pros::Motor Cata(16, pros::E_MOTOR_GEARSET_36, false); // port 16, red gearbox, not reveresed
+pros::Motor Intake(9, pros::E_MOTOR_GEARSET_06, false); // port 16, red gearbox, not reveresed
 pros::MotorGroup Leftsidedrive({FL, BL, TL});
 pros::MotorGroup Rightsidedrive({FR, BR, TR});
 lemlib::Drivetrain_t drivetrain {
@@ -144,7 +145,9 @@ void autonomous() {
 	// timeout: 2000 ms
 	// lookahead distance: 15 inches
 	chassis.follow("offside match1.txt", 2000, 15);
+	Intake.move_velocity(600);
 	chassis.follow("offside match2.txt", 2000, 15);
+	Intake.brake();
 	chassis.follow("offside match3.txt", 2000, 15);
 	chassis.follow("offside match4.txt", 2000, 15);
 	chassis.follow("offside match5.txt", 2000, 15);
