@@ -13,6 +13,8 @@ pros::Motor BR(8, pros::E_MOTOR_GEARSET_06, true); // port 8, blue gearbox, reve
 pros::Motor TR(10, pros::E_MOTOR_GEARSET_06, true); // port 10, blue gearbox, reversed
 pros::Motor Cata(16, pros::E_MOTOR_GEARSET_36, false); // port 16, red gearbox, not reveresed
 pros::Motor Intake(9, pros::E_MOTOR_GEARSET_06, false); // port 16, red gearbox, not reveresed
+pros::ADIDigitalOut IntakeR('A'); // Right side intake piston
+pros::ADIDigitalOut IntakeL('B'); // Left side intake piston
 pros::MotorGroup Leftsidedrive({FL, BL, TL});
 pros::MotorGroup Rightsidedrive({FR, BR, TR});
 lemlib::Drivetrain_t drivetrain {
